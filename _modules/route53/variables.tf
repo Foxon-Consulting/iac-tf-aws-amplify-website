@@ -29,5 +29,31 @@ variable "prd_branch_name" {
 
 
 
+variable "build_spec" {
+  description = "Build spec"
+  type        = string
+  default     = <<-EOT
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci --cache .npm --prefer-offline
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - .npm/**/*
+EOT
+}
+
+
+
 
 

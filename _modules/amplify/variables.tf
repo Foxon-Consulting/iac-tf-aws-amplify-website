@@ -57,3 +57,18 @@ variable "basic_auth_password" {
   type        = string
   sensitive   = true
 }
+
+variable "environment_variables" {
+  description = "Variables d'environnement à configurer pour l'application Amplify"
+  type        = map(string)
+  default     = {
+    AMPLIFY_MONOREPO_APP_ROOT = "."
+  }
+}
+
+variable "build_spec" {
+  description = "Build spec"
+  type        = string
+}
+
+

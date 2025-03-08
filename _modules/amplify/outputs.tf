@@ -24,3 +24,13 @@ output "amplify_branch_id" {
   value       = aws_amplify_branch.main.id
 }
 
+output "amplify_cloudwatch_role_arn" {
+  description = "ARN du rôle IAM qui permet à Amplify de logger dans CloudWatch"
+  value       = aws_iam_role.amplify_cloudwatch.arn
+}
+
+output "amplify_cloudwatch_role_name" {
+  description = "Nom du rôle IAM qui permet à Amplify de logger dans CloudWatch"
+  value       = aws_iam_role.amplify_cloudwatch.name
+}
+

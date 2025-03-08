@@ -9,6 +9,8 @@ module "amplify_app" {
   prd_branch_name = var.prd_branch_name
   framework_type = var.framework_type
 
+  build_spec = var.build_spec
+
   basic_auth_username = var.basic_auth_username
   basic_auth_password = var.basic_auth_password
 
