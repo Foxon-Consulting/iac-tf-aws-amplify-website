@@ -4,12 +4,14 @@ module "amplify_app" {
   client = var.client
   environment = var.environment
   app_name = var.app_name
+  
   repository_url = var.repository_url
   access_token = var.access_token
   prd_branch_name = var.prd_branch_name
   framework_type = var.framework_type
 
   build_spec = var.build_spec
+
 
   basic_auth_username = var.basic_auth_username
   basic_auth_password = var.basic_auth_password
@@ -29,10 +31,13 @@ module "amplify_app" {
 module "route53" {
   source = "./_modules/route53"
 
+  client = var.client
+  environment = var.environment
+  app_name = var.app_name
+
   domain_name = var.domain_name
   aws_amplify_app_id = module.amplify_app.amplify_app_id
   prd_branch_name = var.prd_branch_name
-
 
   prefixlist = var.prefixlist
 

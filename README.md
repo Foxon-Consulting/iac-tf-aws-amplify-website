@@ -1,3 +1,11 @@
+# Warning
+- Push your code into github repo before lanching the terraform IaC.
+- Give access to this new repo to AWS Amplify
+- Create a uat branch in github
+- Launch a new job for each branch
+
+# Terraform
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -29,6 +37,7 @@ No resources.
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | Application name | `string` | n/a | yes |
 | <a name="input_basic_auth_password"></a> [basic\_auth\_password](#input\_basic\_auth\_password) | Basic auth password for uat | `string` | n/a | yes |
 | <a name="input_basic_auth_username"></a> [basic\_auth\_username](#input\_basic\_auth\_username) | Basic auth username for uat | `string` | n/a | yes |
+| <a name="input_build_spec"></a> [build\_spec](#input\_build\_spec) | Build spec | `string` | `"version: 1\r\nfrontend:\r\n  phases:\r\n    preBuild:\r\n      commands:\r\n        - npm ci --cache .npm --prefer-offline\r\n    build:\r\n      commands:\r\n        - npm run build\r\n  artifacts:\r\n    baseDirectory: .next\r\n    files:\r\n      - '**/*'\r\n  cache:\r\n    paths:\r\n      - .next/cache/**/*\r\n      - .npm/**/*\r\n"` | no |
 | <a name="input_client"></a> [client](#input\_client) | Client name | `string` | n/a | yes |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Domain name | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name | `string` | n/a | yes |

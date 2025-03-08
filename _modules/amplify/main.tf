@@ -41,7 +41,7 @@ resource "aws_amplify_app" "this" {
 
 # Création du rôle IAM pour permettre à Amplify de logger dans CloudWatch
 resource "aws_iam_role" "amplify_cloudwatch" {
-  name = "AWSSRAmplify"
+  name = "AWSSRAmplify-${var.client}-${var.app_name}-${var.environment}"
   
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -64,7 +64,7 @@ resource "aws_iam_role" "amplify_cloudwatch" {
 
 # Politique IAM spécifique pour notre groupe de logs CloudWatch
 resource "aws_iam_policy" "amplify_cloudwatch_policy" {
-  name        = "AmplifyCloudWatchLogsPolicy"
+  name        = "AmplifyCloudWatchLogsPolicy-${var.client}-${var.app_name}-${var.environment}"
   description = "Permet à AWS Amplify d'écrire des logs dans CloudWatch"
   
   policy = jsonencode({

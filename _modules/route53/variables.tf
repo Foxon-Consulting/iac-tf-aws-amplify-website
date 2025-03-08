@@ -1,4 +1,20 @@
 # Variables pour la configuration Route53 et domaine
+
+variable "client" {
+  description = "Nom du client"
+  type        = string
+} 
+
+variable "environment" {
+  description = "Nom de l'environnement"
+  type        = string
+} 
+
+variable "app_name" {
+  description = "Nom de l'application"
+  type        = string
+}   
+
 variable "domain_name" {
   description = "Nom de domaine principal pour l'application (ex: foxonconsulting.com)"
   type        = string
@@ -52,8 +68,3 @@ frontend:
       - .npm/**/*
 EOT
 }
-
-
-
-
-

@@ -2,7 +2,7 @@
 
 # Recherche de la zone hébergée Route53 existante
 data "aws_route53_zone" "main" {
-  name         = var.domain_name
+  name         = "foxonconsulting.com"
   private_zone = false
 }
 
