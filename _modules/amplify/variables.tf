@@ -62,7 +62,7 @@ variable "environment_variables" {
   description = "Variables d'environnement à configurer pour l'application Amplify"
   type        = map(string)
   default     = {
-    AMPLIFY_MONOREPO_APP_ROOT = "."
+    VAR_ENV_EXAMPLE = "example"
   }
 }
 
